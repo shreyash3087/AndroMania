@@ -61,7 +61,7 @@ export default function Home() {
       <div className="bg-white shadow-md rounded-lg min-h-[650px] p-16 w-full flex justify-center items-center gap-10 text-7388a6">
         <div className="w-1/2 flex flex-col justify-center items-center p-10 rounded-xl">
           <h1 className="text-[2.5rem] font-bold mb-4 text-center leading-[1.3]">
-            Welcome to Android Club's Debug Round
+            Welcome to Android Club&apos;s Debug Round
           </h1>
           <p className="text-lg mb-6">
             Are you excited for the second round!
