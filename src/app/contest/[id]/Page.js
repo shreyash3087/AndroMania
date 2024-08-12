@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { TeamContext } from '../../../../context/TeamContext';
 const theme = createTheme();
 
-function page() {
+function Page() {
   let {teamName} = useContext(TeamContext);
   return (
     <div>
@@ -17,4 +17,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
