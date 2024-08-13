@@ -120,10 +120,13 @@ function Contest({ teamName }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(120);
   const [hasFinished, setHasFinished] = useState(false);
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
   const timeLeftRef = useRef(timeLeft);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(() => {
+  const savedState = localStorage.getItem('isSubmitDisabled');
+  return savedState === 'true'; 
+});
   useEffect(() => {
-    timeLeftRef.current = timeLeft; // Update ref whenever timeLeft changes
+    timeLeftRef.current = timeLeft; 
   }, [timeLeft]);
   useEffect(() => {
     const fetchContestData = async () => {
@@ -194,12 +197,16 @@ function Contest({ teamName }) {
       setCurrentQuestionIndex(nextIndex);
       setTimeLeft(120);
       setIsSubmitDisabled(false);
+      localStorage.removeItem('isSubmitDisabled');
     }
   };
+  
 
   const handleSubmit = () => {
     setIsSubmitDisabled(true);
+    localStorage.setItem('isSubmitDisabled', 'true');
   };
+  
 
   const memoizedSandpackProvider = useMemo(() => (
     <SandpackProvider
